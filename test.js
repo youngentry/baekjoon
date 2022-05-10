@@ -1,3 +1,3 @@
 const a = "abcd";
 
-console.log(a.charAt(4));
+console.log(a[0]);
