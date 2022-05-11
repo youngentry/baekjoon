@@ -1,8 +1,21 @@
-const inputData = require("fs").readFileSync("devstdin").toString();
-// 97~122 : a to z
+let inputData = new Set(
+  require("fs").readFileSync("devstdin").toString().split("")
+);
 
-let count = -1;
+inputData = [...inputData];
+const string = inputData.join("");
 
-for (i = 0; i < inputData.length; i++) {
-  console.log(inputData.charCodeAt(i));
+let result = "";
+
+for (i = 97; i < 123; i++) {
+  // 97~122 : a to z
+  let count = "-1";
+  for (j = 0; j < string.length; j++) {
+    if (string.charCodeAt(j) == i) {
+      count = String(j);
+    }
+  }
+  result += count + " ";
 }
+
+console.log(result);
