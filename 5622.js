@@ -1,14 +1,22 @@
 const inputData = require("fs").readFileSync("devstdin").toString().split("");
 
-const timeDictinary = {
-  ABC: 2,
-  DEF: 3,
-  GHI: 4,
-  JKL: 5,
-  MNO: 6,
-  PQRS: 7,
-  TUV: 8,
-  WXYZ: 9,
+const dial = {
+  2: "ABC",
+  3: "DEF",
+  4: "GHI",
+  5: "JKL",
+  6: "MNO",
+  7: "PQRS",
+  8: "TUV",
+  9: "WXYZ",
 };
-console.log(timeDictinary(0));
-for (i = 0; i < inputData.length; i++) {}
+
+let time = 0;
+
+for (i = 0; i < inputData.length; i++) {
+  for (j = 2; j < 10; j++) {
+    dial[j].includes(inputData[i]) ? (time += j + 1) : (time = time);
+  }
+}
+
+console.log(time);
