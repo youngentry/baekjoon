@@ -9,6 +9,7 @@ let count = 0;
 for (i = 1; i <= inputData[0]; i++) {
   let wordList = [];
   let word = inputData[i].toString().trim().split("");
+
   for (j = 0; j < word.length; j++) {
     if (word[j] == word[j + 1]) {
       wordList.push(word[j]);
