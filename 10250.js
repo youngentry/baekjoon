@@ -17,11 +17,7 @@ for (i = 1; i <= input[0]; i++) {
       if (x.length == 1) {
         x = `0${x}`;
       }
-      if (n == h) {
-        y = n;
-      }
-      let yx = y + x;
-      console.log(yx);
+      console.log(y + x);
     }
   }
 }

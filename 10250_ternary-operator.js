@@ -17,8 +17,7 @@ for (i = 1; i <= input[0]; i++) {
         x = `0${x}`;
       }
 
-      let yx = y + x;
-      console.log(yx);
+      console.log(y + x);
     }
   }
 }
