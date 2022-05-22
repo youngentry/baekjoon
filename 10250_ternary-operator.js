@@ -12,7 +12,7 @@ for (i = 1; i <= input[0]; i++) {
       let y = "";
       y = n % h == 0 ? (y = h) : (y = `${n % h}`);
 
-      let x = `${Math.ceil(j / h)}`;
+      let x = `${Math.ceil(n / h)}`;
       if (x.length == 1) {
         x = `0${x}`;
       }

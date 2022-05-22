@@ -1,7 +1,6 @@
 const input = require("fs")
   .readFileSync("devstdin")
   .toString()
-  .trim()
   .split("\n")
   .map((x) => x.trim());
 
@@ -13,7 +12,7 @@ for (i = 1; i <= input[0]; i++) {
       if (n % h == 0) {
         y = h;
       }
-      let x = `${Math.ceil(j / h)}`;
+      let x = `${Math.ceil(n / h)}`;
       if (x.length == 1) {
         x = `0${x}`;
       }
