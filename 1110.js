@@ -1,24 +1,15 @@
-const inputNumber = require("fs").readFileSync("devstdin");
+const input = Number(require("fs").readFileSync("devstdin").toString());
 
-const eachNumber = inputNumber.toString().split("");
-
-if (eachNumber.length == 1) {
-  eachNumber.unshift("0");
-}
-let [a, b] = eachNumber;
 let count = 0;
-let changeThisIntoTrue = false;
-let startNumber = a + b;
+let startNumber = input;
 
-while (changeThisIntoTrue != true) {
-  [a, b] = startNumber.toString().split("");
-  let plusTwo = (Number(a) + Number(b)).toString().split("");
-  let newNumber = b + plusTwo[plusTwo.length - 1];
-  startNumber = newNumber;
-  count += 1;
-
-  if (newNumber == eachNumber.join("")) {
-    changeThisIntoTrue = true;
+while (true) {
+  count++;
+  let plusNum = (Math.floor(startNumber / 10) + (startNumber % 10)) % 10;
+  let newNum = String(startNumber % 10) + String(plusNum);
+  startNumber = newNum;
+  if (startNumber == input) {
+    console.log(count);
+    break;
   }
 }
-console.log(count);
