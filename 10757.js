@@ -4,4 +4,9 @@ const [a, b] = require("fs")
   .split(" ")
   .map(BigInt);
 
-console.log(a + b);
+let ab = (a + b).toString();
+console.log((a + b).toString());
+console.log(typeof ab);
+
+let bbb = 123n;
+console.log(typeof bbb);
