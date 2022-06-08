@@ -4,7 +4,7 @@ const [a, b] = require("fs")
   .split("\n")
   .map(Number);
 
-let primeList = [];
+let priLi = [];
 
 function prime(i) {
   for (j = 2; j * j <= i; j++) {
@@ -16,20 +16,17 @@ function prime(i) {
 }
 
 for (i = a; i <= b; i++) {
-  primeList.push(i);
+  priLi.push(i);
   if (i == 1) {
-    primeList.pop();
+    priLi.pop();
   }
   if (i == b) {
-    let a = primeList.filter((i) => prime(i));
-    if (a.length == 0) {
+    priLi.filter((i) => prime(i));
+    if (priLi.length == 0) {
       console.log(-1);
     } else {
-      let sum = 0;
-      a.forEach((x) => {
-        sum += x;
-      });
-      console.log(sum + "\n" + a[0]);
+      console.log(priLi.filter((i) => prime(i)).reduce((a, b) => a + b));
+      console.log(priLi[0]);
     }
   }
 }
