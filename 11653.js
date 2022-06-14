@@ -1,9 +1,11 @@
-const input = require("fs").readFileSync("devstdin").toString();
+let input = require("fs").readFileSync("devstdin").toString();
 
-for (i = 2; i * i <= input; i++) {
-  let num = input;
-  while (num % i == 0) {
-    num = num / i;
-    console.log(i, num);
+for (i = 2; i <= input; i++) {
+  while (input % i == 0) {
+    input = input / i;
+    console.log(i);
+    if (input == 1) {
+      break;
+    }
   }
 }
