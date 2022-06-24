@@ -1,16 +1,13 @@
 const input = require("fs").readFileSync("devstdin").toString();
 
-let fibonacci1 = 0;
-let fibonacci2 = 0;
-let fibonacci3 = 0;
-for (i = 0; i <= input; i++) {
-  if (i == 0) {
-    fibonacci1 = 0;
-  } else if (i == 1) {
-    fibonacci2 = 1;
+function fibo(input) {
+  if (input == 0) {
+    return 0;
+  } else if (input == 1) {
+    return 1;
   } else {
-    fibonacci3 = fibonacci1 + fibonacci2;
+    return fibo(input - 1) + fibo(input - 2);
   }
 }
 
-console.log(fibonacci3);
+console.log(fibo(input));
