@@ -4,16 +4,21 @@ let arr = [];
 for (i = 0; i < n; i++) {
   arr[i] = [];
   for (j = 0; j < n; j++) {
-    if (i == j && i != 0 && j != 0 && i != n - 1 && j != n - 1) {
-      arr[i][j] = "";
-    } else {
-      arr[i][j] = "*";
-    }
+    arr[i][j] = "*";
+  }
+}
+for (i = 1; i < n; i = i + 3) {
+  for (j = 1; j < n; j = j + 3) {
+    arr[i][j] = "0";
   }
 }
 
-function star(n) {
-  console.log(arr);
+for (i = n / 3; i < n - n / 3; i++) {
+  for (j = n / 3; j < n - n / 3; j++) {
+    arr[i][j] = "0";
+  }
 }
 
-star(n);
+for (i = 0; i < n; i++) {
+  console.log(arr[i].join(""));
+}
