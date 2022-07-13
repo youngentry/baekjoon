@@ -1,4 +1,4 @@
-const num = require("fs").readFileSync("devstdin").toString().split("\n");
+const num = require("fs").readFileSync("devstdin").toString().trim().split("\n");
 
 function prime(i) {
   for (j = 2; j * j <= i; j++) {
@@ -15,20 +15,28 @@ for (k = 2; k < num[num.length - 1]; k++) {
     arr.push(k);
   }
 }
-
-const arr2 = [];
 for (l = 1; l <= num[0]; l++) {
-  for (m = arr.length - 1; m >= 0; m--) {
-    if (num[l] > arr[m]) {
-      for (n = arr.length - 1; n >= 0; n--) {
-        if (num[l] > arr[n]) {
-          if (arr[m] + arr[n] == num[l]) {
-            arr2.push([arr[m], arr[n]]);
-          }
-        }
+  var arrP = arr.filter((x) => x < num[l]);
+  const arr2 = [];
+
+  console.log("arr:", arrP, "num:", num[l], "arrPLength:", arrP.length);
+
+  for (i = Math.floor(arrP.length / 2); i >= 0; i--) {
+    for (j = Math.floor(arrP.length / 2) - 1; j < arrP.length; j++) {
+      if (arr[i] + arr[j] == num[l]) {
+        arr2.push([arr[i], arr[j]]);
+
+        // console.log(arr[i], arr[j], "num:", num[l]);
       }
     }
   }
-  console.log(arr2);
-  console.log(arr2[Math.floor(arr2.length / 2)].join(" "));
+  // console.log(arr2, num[l]);
+
+  // if (num[l] == 8) {
+  //   console.log(arr2[1].join(" "));
+  // } else {
+  //   console.log(arr2[0].join(" "));
+  // }
+
+  // console.log(arr2[Math.floor(arr2.length / 2)].join(" "));
 }
