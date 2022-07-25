@@ -1,4 +1,7 @@
-const num = require("fs").readFileSync("devstdin").toString().split("\n");
+const { copyFileSync } = require("fs");
+const { loadavg } = require("os");
+
+const num = require("fs").readFileSync("devstdin").toString().trim().split("\n");
 
 function prime(i) {
   for (j = 2; j * j <= i; j++) {
@@ -16,19 +19,20 @@ for (k = 2; k < num[num.length - 1]; k++) {
   }
 }
 
-const arr2 = [];
 for (l = 1; l <= num[0]; l++) {
-  for (m = arr.length - 1; m >= 0; m--) {
-    if (num[l] > arr[m]) {
-      for (n = arr.length - 1; n >= 0; n--) {
-        if (num[l] > arr[n]) {
-          if (arr[m] + arr[n] == num[l]) {
-            arr2.push([arr[m], arr[n]]);
-          }
-        }
+  const lowArr = arr.filter((p) => p < num[l]);
+  const arr2 = [];
+
+  // console.log(lowArr.length, 11111111);
+  // console.log(Math.floor(lowArr.length / 2), 2222222);
+  // console.log(lowArr[Math.floor(lowArr.length / 2)], "3333333--------------");
+  for (i = Math.floor(lowArr.length / 2); i <= 0; i--) {
+    for (j = Math.floor(lowArr.length / 2) - 1; j < lowArr.length; j++) {
+      if (lowArr[i] + lowArr[j] == num[l]) {
+        arr2.push([lowArr[i], lowArr[j]]);
       }
     }
   }
+
   console.log(arr2);
-  console.log(arr2[Math.floor(arr2.length / 2)].join(" "));
 }

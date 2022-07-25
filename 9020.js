@@ -23,7 +23,7 @@ for (k = 1; k <= num[0]; k++) {
       arr.push(p);
     }
   }
-  console.log(arr, arr.length);
+  console.log(arr, arr.length, num[k]);
   const arr2 = [];
   for (m = arr.length - 1; m >= 0; m--) {
     for (n = arr.length - 1; n >= 0; n--) {
@@ -32,6 +32,6 @@ for (k = 1; k <= num[0]; k++) {
       }
     }
   }
-  console.log(arr2);
-  console.log(arr2[Math.floor(arr2.length / 2)].join(" "));
+  // console.log(arr2);
+  // console.log(arr2[Math.floor(arr2.length / 2)].join(" "));
 }
