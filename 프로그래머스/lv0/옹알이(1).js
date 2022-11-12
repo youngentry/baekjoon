@@ -10,9 +10,7 @@ function solution(babbling) {
                 length -= pronunciation[j].length;
             }
         }
-        if (length === 0) {
-            count++;
-        }
+        !length && count++;
     }
 
     return count;
