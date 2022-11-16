@@ -22,6 +22,7 @@ function solution(board) {
     }
     let count = 0;
     z.map((el1) => (count += el1.filter((el2) => el2 === 0).length));
+    return count;
 }
 
 solution([
