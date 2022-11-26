@@ -12,10 +12,9 @@ const get최소공배수 = (a, b) => {
 };
 
 function solution(arr) {
-    let 최소공배수 = arr[0];
     // 앞에서부터 순서대로 최소공배수 구하기
-    for (let i = 1; i < arr.length; i++) {
-        최소공배수 = get최소공배수(최소공배수, arr[i]);
-    }
-    return 최소공배수;
+    console.log((최소공배수 = arr.reduce((a, b) => get최소공배수(a, b))));
+    return (최소공배수 = arr.reduce((a, b) => get최소공배수(a, b)));
 }
+
+solution([2, 4, 6, 8]);
