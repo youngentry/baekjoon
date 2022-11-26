@@ -18,7 +18,7 @@ function solution(n, words) {
         if (words[i].length === 1) {
             return [number, order];
         }
-        // 문제 없으면 [0,0] 반환
+        // 끝말잇기에 문제 없으면 [0,0] 반환
         if (i === words.length - 1) {
             console.log([0, 0], 4);
             return [0, 0];
