@@ -1,15 +1,18 @@
 function solution(arr1, arr2) {
-    var answer = [[], [], []];
+    var answer = [];
 
     for (let i = 0; i < arr1.length; i++) {
-        for (let j = 0; j < arr2.length; j++) {
-            // console.log(answer);
-            console.log(arr1[0][0], arr2[0][1], arr1[1][0], arr2[1][1]);
-            answer[i][j] = arr1[0][0] * arr2[0][0] + arr1[0][1] * arr2[1][1];
+        const answerArray = [];
+        for (let j = 0; j < arr2[0].length; j++) {
+            let element = 0;
+            for (let k = 0; k < arr2.length; k++) {
+                element += arr1[i][k] * arr2[k][j];
+            }
+            answerArray.push(element);
         }
+        answer.push(answerArray);
     }
 
-    console.log(answer);
     return answer;
 }
 
@@ -22,6 +25,32 @@ solution(
     [
         [3, 3],
         [3, 3],
+    ]
+);
+
+solution(
+    [
+        [2, 3, 2],
+        [4, 2, 4],
+        [3, 1, 4],
+    ],
+    [
+        [5, 4, 3],
+        [2, 4, 1],
+        [3, 1, 1],
+    ]
+);
+
+solution(
+    [
+        [2, 3, 2],
+        [4, 2, 4],
+        [3, 1, 4],
+    ],
+    [
+        [5, 4],
+        [2, 4],
+        [3, 1],
     ]
 );
 // 1 4 | 3 3 => 15 | 15
