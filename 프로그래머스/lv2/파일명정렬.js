@@ -1,6 +1,6 @@
 function solution(files) {
     // head,number,tail 배열만들기
-    const [number, fileArray] = [[], []];
+    const [head, number, tail, fileArray] = [[], [], [], []];
     let isContinuousCount = 0;
     files.forEach((file, index) => {
         const tempNumber = [];
@@ -20,9 +20,9 @@ function solution(files) {
         // number 배열을 먼저 만들고 number를 기준으로 head와 tail 나누면서 순서 부여하기
         isContinuousCount = 0;
         number.push(tempNumber.join(""));
-        const numberArrayLength = number[number.length - 1];
-        const numberIndex = file.indexOf(numberArrayLength[0]);
-        fileArray.push([file.slice(0, numberIndex), number[index], file.slice(numberIndex + numberArrayLength.length), index]);
+        head.push(file.slice(0, file.indexOf(number[number.length - 1][0])));
+        tail.push(file.slice(file.indexOf(number[number.length - 1][0]) + number[number.length - 1].length));
+        fileArray.push([head[index], number[index], tail[index], index]);
     });
 
     // 헤드 순으로 정렬하기
