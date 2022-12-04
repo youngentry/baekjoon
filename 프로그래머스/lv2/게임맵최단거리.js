@@ -2,15 +2,14 @@ function solution(maps) {
     const n = maps.length;
     const m = maps[0].length;
 
-    let player = [[0, 0, 0]];
-
     const command = [
         [0, -1],
         [0, 1],
         [-1, 0],
         [1, 0],
     ];
-    maps[0][0] = 0;
+
+    let player = [[0, 0, 0]];
 
     while (player.length > 0) {
         // 현재 x좌표, y좌표, 움직임 횟수
@@ -44,6 +43,8 @@ function solution(maps) {
         }
     }
 }
+
+// 이동
 // 주변칸 중에 1 찾기
 // 더이상 이동할 수 없을 때까지 or n-1,m-1에 도달할 때까지 이동하기
 // ㄴ이동할 좌표 0으로 바꾸기
@@ -55,5 +56,4 @@ solution([
     [1, 0, 1, 0, 1],
     [1, 0, 1, 1, 1],
     [1, 1, 1, 0, 1],
-    [0, 0, 0, 0, 1],
 ]);
