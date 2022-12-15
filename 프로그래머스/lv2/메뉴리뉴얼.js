@@ -11,7 +11,7 @@ function solution(orders, course) {
         array.forEach((fixedElement, index, origin) => {
             // 뒷부분만을 골라냅니다 fix:x rest:[y, z] | fix:y rest:[z]
             const rest = origin.slice(index + 1);
-            // 뒷부분에 대해서 combination을 실행합니다. [y, z] | [z]
+            // 뒷부분에 대해서 combination을 실행합니다. [y, z] | [z] (위의 if문)
             const smallCombinations = combination(rest, pick - 1);
             // 앞부분과 뒷부분을 합칩니다. 앞[x], 뒤[y,z] => [x, y, z] | 앞[y], 뒤[z] [y, z]
             const combinations = smallCombinations.map((el) => [fixedElement, ...el]);
