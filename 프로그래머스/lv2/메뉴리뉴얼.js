@@ -48,4 +48,4 @@ function solution(orders, course) {
     return answer.map((el) => el[0]).sort();
 }
 
-solution(["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"], [2, 3, 5]);
+// solution(["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"], [2, 3, 5]);
