@@ -1,24 +1,3 @@
-// function solution(array) {
-//   // 등장하는 숫자 카운트하기 => { '1': 1, '2': 1, '3': 3, '4': 1 }
-//   const countObject = {};
-//   array.forEach((el) => (countObject[el] ? (countObject[el] += 1) : (countObject[el] = 1)));
-
-//   // 카운트가 높은 순서대로 정렬하기 => [ [ '3', 3 ], [ '1', 1 ], [ '2', 1 ], [ '4', 1 ] ]
-//   const sortedCountArray = Object.entries(countObject).sort((a, b) => b[1] - a[1]);
-
-//   // 첫번째 값이 최빈값 => [3, 3]
-//   const [modeNumber, modeCount] = [parseInt(sortedCountArray[0][0]), sortedCountArray[0][1]];
-
-//   // 두번째 요소가 존재하고 && 그 값의 카운트가 최빈값과 같으면 최빈값이 여러개이므로 -1을 리턴
-//   if (sortedCountArray[1] && sortedCountArray[1][1] === modeCount) {
-//     return -1;
-//   }
-
-//   // 아니면 하나니까 최빈값 리턴
-//   return modeNumber;
-// }
-
-// solution([1, 2, 3, 3, 3, 4]);
 const arr = [100, 200, 300, 200, 200, 200, 500, 500, 600];
 
 const getMode = (arr) => {
@@ -53,3 +32,27 @@ const getMode = (arr) => {
 
 const result = getMode(arr);
 console.log(`Mode is ${result}`);
+
+function solution(array) {
+  // 객체 생성하기
+  const countObject = {};
+
+  // 등장하는 숫자 카운트하기
+  array.forEach((el) => (countObject[el] ? (countObject[el] += 1) : (countObject[el] = 1)));
+
+  // 카운트가 높은 순서대로 정렬하기
+  const sortedCountArray = Object.entries(countObject).sort((a, b) => b[1] - a[1]);
+
+  // 첫번째 값이 최빈값
+  const [modeKey, modeValue] = [parseInt(sortedCountArray[0][0]), sortedCountArray[0][1]];
+
+  // 두번째 요소가 존재하고 그 값의 카운트가 최빈값과 같으면 최빈값이 여러개이므로 -1을 리턴
+  if (sortedCountArray[1] && sortedCountArray[1][1] === modeValue) {
+    return -1;
+  }
+
+  // 아니면 하나니까 최빈값 리턴
+  return modeKey;
+}
+
+solution([1]);
