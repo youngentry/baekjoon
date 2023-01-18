@@ -28,9 +28,12 @@ function solution(k, m, score) {
   let box = [];
   let money = 0;
 
+  console.log(score);
+
   for (let i = 0; i < score.length; i++) {
     // (2)앞에서부터 m개씩( 가장 저렴한 사과끼리 ) 나누어 상자에 담기
     box.push(score[i]);
+    // 사과 m개를 상자에 담았으면
     if (box.length === m) {
       // (3)상자의 마지막 사과(p) * 사과갯수(m)을 가격에 더하기
       money += box[m - 1] * m;
