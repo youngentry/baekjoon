@@ -8,7 +8,7 @@ function solution(order) {
   let index = 0;
 
   while (true) {
-    // 목표대상이 없으면 [메인벨트 => 보조벨트]
+    // 메인벨트에 상자가 남아 있지만, 목표대상이 없으면 [메인벨트 => 보조벨트]
     if (mainBelt.at(-1) && sideBelt.at(-1) !== order[index] && mainBelt.at(-1) !== order[index]) {
       sideBelt.push(mainBelt.pop());
       continue;
