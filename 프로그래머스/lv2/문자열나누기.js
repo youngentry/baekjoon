@@ -20,6 +20,8 @@ function solution(s) {
     // 횟수 다른 상태로 읽을 긁자 없으면 분리하고 종료
     if (i === s.length - 1) answer++;
   }
+
+  console.log(Math.sqrt(0));
   return answer;
 }
 
