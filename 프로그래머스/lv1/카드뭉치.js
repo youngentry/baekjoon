@@ -10,9 +10,7 @@ function solution(cards1, cards2, goal) {
       cards2Index++;
       continue;
     }
+    return "No";
   }
-  if (cards1Index + cards2Index === goal.length) {
-    return "Yes";
-  }
-  return "No";
+  return "Yes";
 }
